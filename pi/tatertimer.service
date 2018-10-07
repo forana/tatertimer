@@ -1,0 +1,12 @@
+[Unit]
+Description=Tater Timer Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/tatertimer/pi
+ExecStart=/usr/bin/python tatertimer.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
