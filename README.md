@@ -22,9 +22,16 @@ The idea with the Tater Timer is to have a device that tracks how long it's been
 10. Implement Alexa integration with server version
 11. Replace this list in this readme with a picture of the finished working product
 
-## Case
+## Photos
+
+### Case model
 
 ![case](case/case.png)
+
+
+### Board post-initial-solder, pre-case-assembly
+
+![board](misc/board.jpg)
 
 ## Hi
 
