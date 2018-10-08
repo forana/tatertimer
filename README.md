@@ -13,10 +13,10 @@ The idea with the Tater Timer is to have a device that tracks how long it's been
 1. ~~Acquire parts~~
 2. ~~Smoke test parts~~
 3. ~~Demo python code running on pi for screen~~
-4. Demo python code for button / LED via GPIO
+4. ~~Demo python code for button / LED via GPIO~~
 5. ~~Solder parts together~~
 6. ~~Design case~~
-7. Print case
+7. ~~Print case~~
 8. Implement local program
 9. Implement server version
 10. Implement Alexa integration with server version
