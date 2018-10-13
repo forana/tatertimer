@@ -1,6 +1,6 @@
 # Tater Timer
 
-We've got an little boy named Tater Tot.
+We've got a little boy named Tater Tot.
 
 ![tater](misc/tater.jpg)
 
