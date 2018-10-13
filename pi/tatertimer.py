@@ -15,7 +15,7 @@ from PIL import ImageFont
 
 import requests
 
-led_threshold = 30 # seconds before LED lights up
+led_threshold = 7200 # seconds before LED lights up
 
 last_time = time.time() # global tracking the last time tater went out
 time_since_string = ""
