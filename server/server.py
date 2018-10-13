@@ -1,4 +1,4 @@
-from bottle import get, post, request, abort, run, static_file, template
+from bottle import get, post, request, abort, run, static_file
 import time
 import os
 
@@ -20,9 +20,7 @@ index_template = """
             }
         </style>
     </head>
-    <body>
-        {{body}}
-    </body>
+    <body>%s</body>
 </html>
 """
 
@@ -38,7 +36,7 @@ def index():
     message = "<p>the boy last went out %d:%02d:%02d ago.</p>" % (h,m,s)
     if time_since > 7200:
         message += "<p>take the boy outside!</p>"
-    return template(index_template, body = message)
+    return index_template % (message,)
 
 @get('/tater')
 def tater():
