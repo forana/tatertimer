@@ -1,11 +1,11 @@
 import time
 import math
+import os
 import sys
 import threading
 import subprocess
 
 import RPi.GPIO as GPIO
-
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
 
@@ -13,12 +13,17 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
+import requests
+
 led_threshold = 30 # seconds before LED lights up
 
 last_time = time.time() # global tracking the last time tater went out
 time_since_string = ""
 
 wifi_connected = False
+
+endpoint = "http://tater.alexforan.com/reset"
+password = os.getenv("TATER_PASSWORD", "tater")
 
 def log(message):
     sys.stdout.write(message)
@@ -71,7 +76,15 @@ def button_check():
         if current_read != last_read and current_read == GPIO.LOW:
             # then the button was pressed, and we reset the timer
             last_time = time.time()
-            log("time reset")
+            log("internal time reset")
+            try:
+                resp = requests.post(endpoint, data = {"password": password})
+                if resp.status_code == 200:
+                    log("reset sent to server successfully")
+                else:
+                    log("server error: " + resp.text)
+            except e:
+                log("something went real wrong: %s" % (e,))
         last_read = current_read
         time.sleep(0.01)
 

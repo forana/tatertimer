@@ -5,6 +5,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/home/pi/tatertimer/pi
+Environment=TATER_PASSWORD=tater
 ExecStart=/usr/bin/python tatertimer.py
 Restart=on-failure
 
