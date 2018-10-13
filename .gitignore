@@ -1,2 +1,4 @@
 Adafruit_Python_SSD1306
 *.pyc
+venv
+**.DS_Store
