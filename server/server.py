@@ -7,7 +7,8 @@ index_template = """
 <html>
     <head>
         <title>Tater Timer</title>
-        <link rel="icon" href="/tater">
+        <link rel="icon" href="/tater"/>
+        <meta http-equiv="refresh" content="10"/>
         <style>
             * {
                 font-family: sans-serif;
@@ -34,7 +35,9 @@ def index():
     h = time_since/3600
     m = time_since/60
     s = time_since%60
-    message = "The boy last went out %d:%02d:%02d ago." % (h,m,s)
+    message = "<p>the boy last went out %d:%02d:%02d ago.</p>" % (h,m,s)
+    if time_since > 7200:
+        message += "<p>take the boy outside!</p>"
     return template(index_template, body = message)
 
 @get('/tater')
